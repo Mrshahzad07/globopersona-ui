@@ -1,0 +1,6 @@
+email,firstName,lastName,jobTitle,company,website,phone,city,state,country,industry
+emily.leadflux@outlook.com,Emily,Hasegawa,Chief Design Officer,ELS Architecture and Urban Design,www.elsarchitecture.com,555-0101,San Francisco,California,United States,Technology Stack
+john.smith@techcorp.com,John,Smith,CTO,TechCorp Inc,www.techcorp.com,555-0102,New York,New York,United States,Technology
+sarah.johnson@startupxyz.io,Sarah,Johnson,VP Engineering,Startup XYZ,www.startupxyz.io,555-0103,Austin,Texas,United States,Startups
+michael.chen@designco.com,Michael,Chen,Product Manager,DesignCo,www.designco.com,555-0104,Seattle,Washington,United States,Recent Activity
+lisa.martinez@fintech.io,Lisa,Martinez,VP Product,FinTech Solutions,www.fintech.io,555-0105,Boston,Massachusetts,United States,Finance

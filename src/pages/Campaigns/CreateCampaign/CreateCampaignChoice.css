@@ -1,0 +1,123 @@
+.create-campaign-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.create-campaign-header {
+  margin-bottom: var(--space-6);
+}
+
+.create-campaign-choice {
+  text-align: center;
+  padding: var(--space-8) 0;
+}
+
+.choice-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 var(--space-2);
+  color: var(--text-primary);
+}
+
+.choice-subtitle {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-10);
+}
+
+.choice-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-8);
+  justify-content: center;
+  text-align: left;
+}
+
+.choice-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-8);
+  background: white;
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-align: left;
+  width: 100%;
+}
+
+.choice-card:hover {
+  border-color: var(--color-primary-400);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.choice-card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+  color: white;
+}
+
+.choice-card-icon.standard {
+  background: linear-gradient(135deg, var(--color-primary-600), var(--color-accent-600));
+}
+
+.choice-card-icon.chatbot {
+  background: linear-gradient(135deg, var(--color-accent-600), var(--color-primary-600));
+}
+
+.choice-card h3 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin: 0 0 var(--space-3);
+  color: var(--text-primary);
+}
+
+.choice-card p {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0 0 var(--space-4);
+  flex: 1;
+}
+
+.choice-card-cta {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-600);
+}
+
+@media (max-width: 768px) {
+  .choice-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+[data-theme='dark'] .choice-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .choice-card:hover {
+  border-color: var(--color-primary-400);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='dark'] .choice-card h3 {
+  color: #f1f5f9;
+}
+
+[data-theme='dark'] .choice-card p {
+  color: #94a3b8;
+}
+
+[data-theme='dark'] .choice-card-cta {
+  color: #818cf8;
+}
