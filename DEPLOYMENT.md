@@ -10,38 +10,7 @@ Build output: `dist/` folder (112.61 kB gzipped)
 
 ## 🚀 Quick Deployment Options
 
-### Option 1: Vercel (Recommended - Easiest)
-
-1. **Install Vercel CLI**:
-   ```bash
-   npm install -g vercel
-   ```
-
-2. **Deploy**:
-   ```bash
-   vercel
-   ```
-
-3. **Follow prompts**:
-   - Set up and deploy? → Yes
-   - Which scope? → Your account
-   - Link to existing project? → No
-   - Project name? → globopersona
-   - Directory? → `./`
-   - Override settings? → No
-
-4. **Done!** Your app will be live at `https://globopersona.vercel.app`
-
-**Vercel automatically**:
-- Detects Vite configuration
-- Builds the project
-- Configures SPA routing
-- Provides HTTPS and CDN
-- Gives you a production URL
-
----
-
-### Option 2: Netlify
+### Option 1: Netlify
 
 #### Method A: Netlify CLI
 
@@ -56,6 +25,8 @@ netlify login
 netlify deploy --prod --dir=dist
 ```
 
+4. **Done!** Your app will be live at `https://globopersona-ui.netlify.app/login`
+
 #### Method B: Netlify Web UI
 
 1. Go to [netlify.com](https://netlify.com)
@@ -65,20 +36,23 @@ netlify deploy --prod --dir=dist
 
 **Configure SPA routing** in Netlify:
 Create `public/_redirects`:
+
 ```
 /* /index.html 200
 ```
 
 ---
 
-### Option 3: GitHub Pages
+### Option 2: GitHub Pages
 
 1. **Install gh-pages**:
+
    ```bash
    npm install -D gh-pages
    ```
 
 2. **Add to package.json**:
+
    ```json
    "scripts": {
      "deploy": "gh-pages -d dist"
@@ -86,14 +60,16 @@ Create `public/_redirects`:
    ```
 
 3. **Update vite.config.js** base:
+
    ```js
    export default defineConfig({
-     base: '/globopersona-ui/',
+     base: "/globopersona-ui/",
      // ...rest
-   })
+   });
    ```
 
 4. **Deploy**:
+
    ```bash
    npm run build
    npm run deploy
@@ -103,9 +79,10 @@ Create `public/_redirects`:
 
 ---
 
-### Option 4: AWS S3 + CloudFront
+### Option 3: AWS S3 + CloudFront
 
 1. **Build the project**:
+
    ```bash
    npm run build
    ```
@@ -126,9 +103,10 @@ Create `public/_redirects`:
 
 ---
 
-### Option 5: Traditional Web Hosting
+### Option 4: Traditional Web Hosting
 
 1. **Build the project**:
+
    ```bash
    npm run build
    ```
@@ -138,6 +116,7 @@ Create `public/_redirects`:
 3. **Configure server** for SPA routing:
 
    **Apache (.htaccess)**:
+
    ```apache
    <IfModule mod_rewrite.c>
      RewriteEngine On
@@ -150,6 +129,7 @@ Create `public/_redirects`:
    ```
 
    **Nginx (nginx.conf)**:
+
    ```nginx
    location / {
      try_files $uri $uri/ /index.html;
@@ -175,6 +155,7 @@ Create `public/_redirects`:
 ## 🔒 Post-Deployment Steps
 
 ### 1. Test the Live Site
+
 - [ ] Login functionality
 - [ ] Dashboard loads with charts
 - [ ] Campaign creation wizard (all 6 steps)
@@ -183,22 +164,30 @@ Create `public/_redirects`:
 - [ ] All navigation links work
 
 ### 2. Optional: Add Custom Domain
+
 Most hosting providers support custom domains:
+
 - Vercel: Project settings → Domains
 - Netlify: Site settings → Domain management
 - Add DNS records at your domain provider
 
 ### 3. Enable Analytics (Optional)
+
 Add Google Analytics or similar:
 
 ```html
 <!-- In index.html, before </head> -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'GA_MEASUREMENT_ID');
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "GA_MEASUREMENT_ID");
 </script>
 ```
 
@@ -209,6 +198,7 @@ Add Google Analytics or similar:
 When ready to connect a real backend:
 
 1. **Update environment variables**:
+
    ```env
    VITE_API_BASE_URL=https://api.yourdomain.com
    ```
@@ -220,7 +210,7 @@ When ready to connect a real backend:
 
 3. **Add environment-specific configs**:
    ```js
-   const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+   const API_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:3000";
    ```
 
 ---
@@ -237,14 +227,17 @@ When ready to connect a real backend:
 ## 🐛 Troubleshooting
 
 ### Blank page after deployment
+
 - **Cause**: Base URL configuration
 - **Fix**: Ensure `vite.config.js` has correct `base` setting
 
 ### 404 errors on routes
+
 - **Cause**: Server not configured for SPA
 - **Fix**: Add redirect rules (see hosting section above)
 
 ### Assets not loading
+
 - **Cause**: Incorrect asset paths
 - **Fix**: Ensure all paths use relative imports
 
